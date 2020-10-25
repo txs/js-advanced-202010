@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>展示網頁</title>
+</head>
+<body id="main">
+    <h1 id='header' class="header">單元一</h1>
+    <p class="content">內容一</p>
+    <p class="content" id='content2'>內容二</p>
+    <p class="content">內容三</p>
+    <p class="content" name='content4'>內容四</p>
+</body>
+<script>
+    var contents = document.getElementsByClassName('content')
+    console.log(contents);
+    console.log('有幾個:'+contents.length);
+    console.log('item 抓');
+    console.log(contents.item(0).innerHTML);
+    console.log('namedItem 抓的');
+    console.log(contents.namedItem('content2').innerHTML);
+    console.log(contents.namedItem('content4').innerHTML);
+
+</script>
+</html>
