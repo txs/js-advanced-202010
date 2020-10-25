@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementById Example</title>
+</head>
+<body>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <div class='note'>Note 1</div>
+    <div class='note'>Note 2</div>
+    <div class='note'>Note 3</div>
+    <div class='alert'>Alert 1</div>
+    <div class='alert'>Alert 2</div>
+    <div class='alert'>Alert 3</div>
+</body>
+<script>
+    var element = document.querySelector("p");
+    console.log(element);
+    var elementList = document.querySelectorAll("div.note, div.alert");
+    console.log(elementList);
+
+</script>
+</html>
