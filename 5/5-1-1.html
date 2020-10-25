@@ -22,5 +22,28 @@
     var elementList = document.querySelectorAll("div.note, div.alert");
     console.log(elementList);
 
+// forEach
+    elementList.forEach(
+        function(currentValue, currentIndex, listObj) { 
+            console.log(currentIndex);
+            console.log(currentValue);     
+        },       
+    )
+// entries
+// entry -> [index,value]
+    for(var entry of elementList.entries()) { 
+        console.log(entry);
+    }
+
+// keys
+    for(var key of elementList.keys()) { 
+        console.log(key); 
+        // console.log(elementList[key]); // 拿到裡面的 HTML 元素
+    }
+// values
+    for(var value of elementList.values()) { 
+        console.log(value); // 直接給元素
+    }
+
 </script>
 </html>
