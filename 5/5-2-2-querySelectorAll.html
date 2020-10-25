@@ -20,7 +20,9 @@
         var newElement = document.createElement('li')
         newElement.innerHTML = animals[i]
         ul.appendChild(newElement)
-    }為
+    }
     console.log(li.length); // li 還是二 因為 querySelectorAll 抓回的 NodeList 為 靜態集合 (static collection) -> 詳見 5-1(ppt5-4)
+    li = ul.querySelectorAll('li') // 再要一次，就可以拿到最新的靜態 NodeList
+    console.log(li.length);
 </script>
 </html>

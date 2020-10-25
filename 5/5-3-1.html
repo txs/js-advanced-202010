@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='container'>
+        <div class="area">area1</div>
+        <div class="area">area2</div>
+        <div class="area">area3</div>
+    </div>
+</body>
+<script>
+    // NodeList
+    var nodelist = document.querySelectorAll('.area')
+    console.log(nodelist.constructor.name); //建構子名稱
+    console.log(Array.isArray(nodelist));
+
+    // HTMLCollection
+    var htmlCollection = document.getElementsByClassName('area')
+    console.log(htmlCollection.constructor.name);
+    console.log(Array.isArray(htmlCollection));
+</script>
+</html>
