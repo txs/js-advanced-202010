@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function add(a,b){
+        console.log("綁定物件", this);
+        return a+b
+    }
+
+    console.log(add(1,2))
+
+    console.log(add.apply(document,[3,4]) )
+
+    console.log(add.call({x:18},5,6) )
+</script>
+</html>
