@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="message" class="test">
+        <span>Hello world!</span>
+    </div>
+</body>
+<script>
+    var message = document.getElementById('message')
+    var attr = document.getElementById('message').getAttributeNode("id")
+    console.log(message.nodeType);
+    console.log(message.nodeName);
+    console.log(message.nodeValue);
+    console.log(attr.nodeType);
+    console.log(attr.nodeName);
+    console.log(attr.nodeValue);
+    
+
+</script>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a id="link" href="https://www.google.com.tw/" target="_blank">Google</a>
+</body>
+<script>
+    var link = document.getElementById('link')
+    console.log(link.getAttribute('target'));
+    link.removeAttribute('target')
+    console.log(link.getAttribute('target'));
+</script>
+</html>

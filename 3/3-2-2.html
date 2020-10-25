@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='main'>
+        <p id='p1'>段落一</p>
+        <p id='p2'>段落二</p>
+    </div>
+</body>
+<script>
+    var paragraph   = document.createElement("p")
+    var node        = document.createTextNode("段落三")
+    // console.log(paragraph);
+    paragraph.appendChild(node)
+    console.log(paragraph);
+
+    var element = document.getElementById('main') // Parent Node
+    // 放在 p1 前面
+    // var firstChild = document.getElementById('p1')// Reference Node
+    // element.insertBefore(paragraph,firstChild)
+    // 放在 p2 前面
+    var secondChild = document.getElementById('p2')// Reference Node
+    element.insertBefore(paragraph,secondChild)
+    
+</script>
+</html>

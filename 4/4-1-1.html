@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="message" class="test">
+        <span>Hello world!</span>
+    </div>
+</body>
+<script>
+    var message = document.getElementById('message')
+    console.log(message);
+    console.log(message.id);
+    console.log(message.innerHTML);
+    console.log(message.textContent);
+    message.id='message1'
+    message.className='test1'
+    message.textContent = 'How are you?'
+    console.log(message);
+    console.log(message.id);
+    console.log(message.innerHTML);
+    console.log(message.textContent);
+</script>
+</html>
