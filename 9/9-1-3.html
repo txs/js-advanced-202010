@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='container'>
+        <button id='myBtn'>按鈕</button>
+    </div>
+    <div id='demo'></div>
+</body>
+<script>
+    // 寫法1.
+    // document.getElementById('myBtn').addEventListener('click',myFunction)
+    // function myFunction(){
+    //     document.getElementById('demo').innerHTML += 'Hello world'
+    // }
+    // 寫法2.
+    // document.getElementById('myBtn').addEventListener('click',myFunction1)
+    // document.getElementById('myBtn').addEventListener('click',myFunction2)
+    // function myFunction1(){
+    //     document.getElementById('demo').innerHTML += 'Function1 Runs <br>'
+    // }
+    // function myFunction2(){
+    //     document.getElementById('demo').innerHTML += 'Function2 Runs <br>'
+    // }
+    // function myFunction3(){
+    //     document.getElementById('demo').innerHTML += 'Function3 Runs <br>'
+    // }
+    // 寫法3.
+    // document.getElementById('myBtn').addEventListener('mouseover',myFunction1)
+    // document.getElementById('myBtn').addEventListener('click',myFunction2)
+    // document.getElementById('myBtn').addEventListener('mouseout',myFunction3)
+
+    // 寫法4.
+    document.getElementById('myBtn').addEventListener('click',function(){
+        document.getElementById('demo').innerHTML += 'Mouse Clicked<br>'
+    })
+
+</script>
+</html>

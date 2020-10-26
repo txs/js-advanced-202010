@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='container'>
+        <button id='myBtn'>按鈕</button>
+    </div>
+</body>
+<script>
+    var container = document.getElementById('container')
+    var button = document.getElementById('myBtn')
+    // console.log(container);
+    // console.log(button);
+    container.onclick = function(){console.log('div click');}
+    button.onclick = function(){console.log('button click');}
+</script>
+</html>
