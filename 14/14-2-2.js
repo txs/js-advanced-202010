@@ -8,10 +8,10 @@ function Dog(name,age){
 
 var smallDog = new Dog('阿望',1)
 console.log(smallDog.name);
-console.log(smallDog.age);
+console.log(smallDog["age"]);
 smallDog.eat()
 
 var bigDog = new Dog('大狗',100)
 console.log(bigDog.name);
-console.log(bigDog.age);
+console.log(bigDog["age"]);
 bigDog.eat()
