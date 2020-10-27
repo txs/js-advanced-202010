@@ -10,5 +10,6 @@
 
 
 // 引入 default
-import Car from './math.js'
-console.log(Car);
+import {PI,a} from './math.js'
+console.log(PI);
+console.log(a);

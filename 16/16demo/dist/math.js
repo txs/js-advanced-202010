@@ -3,18 +3,19 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
-// const PI = 3.14
-// export { PI };
-// export const limit = 18
+exports.a = exports.PI = void 0;
+var PI = 3.14;
+exports.PI = PI;
+var a = 16; // export const limit = 18
 // function add(a,b){
 //     return a+b
 // }
 // export { add }
 // export function square(){}
 //
-var PI = 3.14;
-var _default = PI; // export default function add(){
+// const PI = 3.14
+// export default PI
+// export default function add(){
 // }
 
-exports["default"] = _default;
+exports.a = a;

@@ -1,8 +1,6 @@
 "use strict";
 
-var _math = _interopRequireDefault(require("./math.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+var _math = require("./math.js");
 
 // import {PI,add as Add} from './math.js'
 // console.log(PI);
@@ -13,4 +11,5 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 // console.log(Math.PI);
 // console.log(Math.add(1,2));
 // 引入 default
-console.log(_math["default"]);
+console.log(_math.PI);
+console.log(_math.a);

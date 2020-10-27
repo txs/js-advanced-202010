@@ -1,0 +1,17 @@
+{
+  "name": "17",
+  "version": "1.0.0",
+  "description": "",
+  "private": "true",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "txs <txshon@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.2.0",
+    "webpack-cli": "^4.1.0"
+  }
+}
