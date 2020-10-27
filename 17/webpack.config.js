@@ -5,7 +5,7 @@ module.exports = {
     devtool: "none",
     entry:"./src/index.js", //進入點
     output:{
-        filename: "bundle.js"
+        filename: "bundle.js",
         path: path.resolve(__dirname,"dist")
     }
 }
