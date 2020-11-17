@@ -303,7 +303,7 @@ import './styles.css'
 
 
 # 本次作業要做的是
-希望同學可以用 npm, webpack 來管理你的專案，我希望同學可以試著用 npm 安裝 bootstrap, jquery 甚至是 font-awesome 圖標庫。
+希望同學可以用 npm, webpack 來管理你的專案，我希望同學可以試著用 npm 安裝  bootstrap, google-fonts, jquery 甚至是 font-awesome 圖標庫。
 再來，你便可以將你的專案上傳到 Github 與大家分享啦！
 
 我會按你的星星鼓勵你的！
@@ -322,9 +322,9 @@ npm install bootstrap --save
 
 因為我們只有要 Theme 的內容，所以我們只把 head 內的 title 複製到 index.html ，Theme 內的 body 中 section 與 footer 複製到 index.html。對於 head 內的 css 等套件與 body 後的 javascript 我們都不引入，因為這些東西我們要用 npm package 來做好管理與版本控制。
 
-![Grayscale without style](./src/assets/img/grayscale-without-style.png)
-
 當我們灌好 Boostrap 後，打開眼簾的是一片慘不忍睹，是沒有 style 的 html 與 div 。接下來，我們要一步一步引入需要的元件。
+
+![Grayscale without style](./src/assets/img/grayscale-without-style.png)
 
 ### Bootstrap JS 
 
@@ -334,6 +334,7 @@ npm install bootstrap --save
 
 不過，我們前面學到的已經可以在 index.html 內寫 html, styles.css 寫 css, index.js 載 javascript。現在，我們在 index.js 內載入 Boostrap 。
 ```js
+// src/index.js
 import 'bootstrap'
 ```
 
@@ -392,6 +393,44 @@ plugins: [
    import 'bootstrap/dist/css/bootstrap.min.css';
    ```
 
+## Google Fonts
+這次的 theme 中在 head 引入了 google fonts，但現在我們要換個語法直接在 styles.css 引入
+
+我們將原本 head 的 <link href="..." rel="stylesheet" />
+
+換成了 css 的 @import url(...) 語法
+
+
+我們在 styles.css 中新增
+```css
+/* src/styles.css */
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+@import url("https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i");
+```
+
+## FontAwesome 圖標集
+在很多的專案中我們都會用到 font-awesome，而本專案的也有使用到 font-awesome
+現在讓我們用 npm 來裝他吧！
+
+#### Yarn 安裝 fontawesome-free
+```bash
+yarn add @fortawesome/fontawesome-free
+```
+#### Npm 安裝 fontawesome-free
+```bash
+npm install --save-dev @fortawesome/fontawesome-free
+```
+
+然後在我們的 index.js 引入這些圖標
+```js
+// src/index.js
+import '@fortawesome/fontawesome-free/js/fontawesome'
+import '@fortawesome/fontawesome-free/js/solid'
+import '@fortawesome/fontawesome-free/js/regular'
+import '@fortawesome/fontawesome-free/js/brands'
+```
+
+
 ## 將 theme 內的 Assests 移入
 記得也要把 theme 的 assests 資料夾移到專案 src 資料夾喔！
 ## 讓 index.html 中的圖找的到 assets/img
@@ -403,11 +442,11 @@ assets 也必須要打包到 dist 才行。
 ### copy-webpack-plugin
 
 這時候，我們要使用 copy-webpack-plugin
-### Yarn 安裝 Copy Webpack Plugin
+#### Yarn 安裝 Copy Webpack Plugin
 ```bash
 yarn add copy-webpack-plugin
 ```
-### Npm 安裝 Copy Webpack Plugin
+#### Npm 安裝 Copy Webpack Plugin
 ```bash
 npm install copy-webpack-plugin --save-dev
 ```
@@ -444,11 +483,11 @@ plugins: [
    
     ### jquery.easing
     我們需要安裝 jQuery Easing 這個套件
-    ### Yarn 安裝 Copy Webpack Plugin
+    #### Yarn 安裝 Copy Webpack Plugin
     ```bash
     yarn add jquery.easing
     ```
-    ### Npm 安裝 Copy Webpack Plugin
+    #### Npm 安裝 Copy Webpack Plugin
     ```bash
     npm install jquery.easing --save-dev
     ```
