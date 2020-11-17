@@ -494,7 +494,7 @@ plugins: [
 
     來使用他，我們只需要在 index.js 內 import 這個套件即可
     ```js
-    //src/index.js
+    // src/index.js
     import 'jquery.easing'
     ```
 2. body 尾巴的 js 資料夾內的 scripts.js
@@ -502,6 +502,6 @@ plugins: [
     將 theme 內的 js 資料夾直接拉到專案 src 內，
     我們在 index.js 直接 import
     ```js
-    //src/index.js
+    // src/index.js
     import './js/scripts'
     ```
