@@ -476,7 +476,7 @@ plugins: [
 ```
 
 ## 將 theme 內的 css/styles.css 移入 src/styles.css
-理論上，你能夠將 theme 內的 styles.css 內的全選，複製到 src/styles.css 空白的 css 並貼上。但有一點必須要注意，因為 grayscale 原本的 assets 是跟 css 資料夾同一層，而原本的 styles.css 是在 css 內的檔案。這份 css 在引入 assets 的時候，是使用 ../assets/.... 的語法。而在本專案，assets 則是與 styles.css 同一層，應將 ../assets 改為 ./assets
+理論上，你能夠將 theme 內的 styles.css 內的全選，複製到 src/styles.css 空白的 css 並貼上。但有一點必須要注意，因為 grayscale 原本的 assets 是跟 css 資料夾同一層，而原本的 styles.css 是在名為 css 資料夾內的檔案。theme 內 css/styles.css 在引入 assets 的時候，是使用 ../assets/.... 的語法。而在本專案，assets 則是與 styles.css 同一層，應將本專案複製後的 src/styles.css 的 ../assets 改為 ./assets
 ## 將 theme 內的 JS 移入
 首先有兩塊 javascript 我們還沒移入
 1. body 尾巴的 jquery easing
