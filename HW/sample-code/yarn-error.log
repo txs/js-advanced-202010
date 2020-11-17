@@ -1,0 +1,59 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn add html-webpack
+
+PATH: 
+  /Library/Frameworks/Python.framework/Versions/3.8/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Library/Frameworks/Python.framework/Versions/3.8/bin
+
+Yarn version: 
+  1.22.0
+
+Node version: 
+  12.16.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/html-webpack: Not found
+      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66975:18)
+      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140727:22)
+      at Request.emit (events.js:311:20)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141699:10)
+      at Request.emit (events.js:311:20)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141621:12)
+      at Object.onceWrapper (events.js:417:28)
+      at IncomingMessage.emit (events.js:323:22)
+      at endReadableNT (_stream_readable.js:1204:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21)
+
+npm manifest: 
+  {
+    "name": "17",
+    "version": "1.0.0",
+    "description": "",
+    "private": "true",
+    "main": "index.js",
+    "scripts": {
+      "start": "webpack --config webpack.config.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "txs <txshon@gmail.com>",
+    "license": "ISC",
+    "devDependencies": {
+      "@babel/core": "^7.12.3",
+      "@babel/preset-env": "^7.12.1",
+      "babel-loader": "^8.1.0",
+      "css-loader": "^5.0.0",
+      "file-loader": "^6.1.1",
+      "style-loader": "^2.0.0",
+      "webpack": "^5.2.0",
+      "webpack-cli": "^4.1.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
