@@ -297,4 +297,21 @@ module.exports = {
 # 本次作業要做的是
 希望同學可以用 npm, webpack 來管理你的專案，我希望同學可以試著用 npm 安裝 bootstrap, jquery 甚至是 font-awesome 圖標庫。
 再來，你便可以將你的專案上傳到 Github 與大家分享啦！
-我會按你的星星鼓勵你的!
+
+我會按你的星星鼓勵你的！
+
+## Bootstrap
+
+#### Yarn 安裝 Bootstrap
+```bash
+yarn add bootstrap
+```
+#### Yarn 安裝 Bootstrap
+```bash
+npm install bootstrap --save
+```
+
+
+## jQuery
+
+## Font-awesome

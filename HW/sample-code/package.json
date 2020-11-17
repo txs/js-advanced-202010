@@ -5,7 +5,7 @@
   "private": "true",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.config.dev.js",
+    "dev": "webpack serve --mode development --env development",
     "build": "webpack --config webpack.config.prod.js",
     "start": "webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,6 +24,7 @@
     "webpack-cli": "^4.1.0"
   },
   "dependencies": {
+    "boostrap": "^2.0.0",
     "html-webpack-plugin": "^4.5.0",
     "raw-loader": "^4.0.2",
     "webpack-dev-server": "^3.11.0"
