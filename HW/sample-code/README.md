@@ -36,6 +36,7 @@
 
 再來，我們要在 webpack config 內設定為
 ```javascript
+// webpack.config.js
 var path = require('path')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -57,6 +58,13 @@ module.exports = {
         }]
     }
 }
+```
+
+### 載入 styles.css
+因為加上這個插件後， html 與 js 可以成功的被 webpack 讀取，但是 styles.css 內的 style 並沒有畫到 html 內。所以，我們要在 index.js 內，將 styles.css 引入進來
+```js
+// src/index.js
+import './styles.css'
 ```
 ## 如何讓頁面跑起來
 我們要讓我們的頁面跑起來，如果以我們在 html 課堂中學到的，我們是跑到 VS Code 的 html 上按住右鍵-[start a liveserver]，使用 live-server 來幫助我們跑我們需要的頁面。
@@ -310,8 +318,151 @@ yarn add bootstrap
 ```bash
 npm install bootstrap --save
 ```
+這個範例是使用 StartBootstrap 的免費 Theme [Grayscale](https://startbootstrap.com/theme/grayscale)
+
+因為我們只有要 Theme 的內容，所以我們只把 head 內的 title 複製到 index.html ，Theme 內的 body 中 section 與 footer 複製到 index.html。對於 head 內的 css 等套件與 body 後的 javascript 我們都不引入，因為這些東西我們要用 npm package 來做好管理與版本控制。
+
+![Grayscale without style](./src/assets/img/grayscale-without-style.png)
+
+當我們灌好 Boostrap 後，打開眼簾的是一片慘不忍睹，是沒有 style 的 html 與 div 。接下來，我們要一步一步引入需要的元件。
+
+### Bootstrap JS 
+
+當我們要把 Bootstrap 在我們的專案中跑起來的時候，有很重要的一部份就是 Bootstrap Javascript 的部分。
+以往我們使用 Boostrap 的方式是在 style 放在 head 讓 css 先載，再來載入html，讓使用者不會看到醜醜的 html，因為 css style 先載好。最後，才在 body 尾巴的部分載入 jQuery, Boostrap 與自己的客製 javascript 讓頁面動起來。
+![Traditional How Web Load](./src/assets/img/traditional-how-web-load.png)
+
+不過，我們前面學到的已經可以在 index.html 內寫 html, styles.css 寫 css, index.js 載 javascript。現在，我們在 index.js 內載入 Boostrap 。
+```js
+import 'bootstrap'
+```
+
+這個時候，我們去跑 npm run dev。結果指令列壞掉了！
+![Error Code without jQuery and popper.js](./src/assets/img/error-jquery-popper.png)
+
+我們需要一起連同 jQuery 與 popper.js 都裝到本專案內
+
+#### Yarn 安裝 jQuery 與 popper.js
+```bash
+yarn add jquery popper.js
+```
+#### Npm 安裝 jQuery 與 popper.js
+```bash
+npm install jquery popper.js --save
+```
+
+### Webpack 如何使用 jQuery
+在安裝 Boostrap 的過程中，我們一同也將 jQuery 也裝好了!
+
+不過我們應該要如何在 webpack 中使用呢？
+
+我們可以把 jQuery 當作 webpack plugin 來用
+我們將 $, jQuery 等關鍵字都指定給我們 npm 的 jquery package 來用
+```js
+//webpack.config.dev.js
+plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+        template: './src/index.html'
+    }),
+    new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery"
+    })
+],
+```
 
 
-## jQuery
+### Bootstrap CSS 
+   我們已經在我們之前 17章 教導過 style-loader, css-loader。要確保他有在你的 webpack config 內喔！
+   ```js
+   //webpack.config.dev.js
+   {
+        rules: [
+            {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader']
+            }
+        ]
+    }
+   ```
+   再來，我們只要在 index.js 內 import boostrap distro 內的壓縮版 css min.css
+   ```js
+   // index.js
+   import 'bootstrap/dist/css/bootstrap.min.css';
+   ```
 
-## Font-awesome
+## 將 theme 內的 Assests 移入
+記得也要把 theme 的 assests 資料夾移到專案 src 資料夾喔！
+## 讓 index.html 中的圖找的到 assets/img
+當我們執行 npm run dev 時，我們在 localhost:8080 的頁面中，看不到 template 的圖片。這是因為 localhost:8080/assets... 是沒有東西的!
+assets 也必須要打包到 dist 才行。
+
+![Cannot find assets](./src/assets/img/cannot-find-assets.png)
+
+### copy-webpack-plugin
+
+這時候，我們要使用 copy-webpack-plugin
+### Yarn 安裝 Copy Webpack Plugin
+```bash
+yarn add copy-webpack-plugin
+```
+### Npm 安裝 Copy Webpack Plugin
+```bash
+npm install copy-webpack-plugin --save-dev
+```
+
+安裝完後，我們要將 src/assets 搬到 assets 來讓 html 可以找的到圖，我們在 webpack config 使用本 plugin
+
+```js
+//webpack.config.dev.js
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+...
+plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+        template: './src/index.html'
+    }),
+    new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery"
+    }),
+    new CopyWebpackPlugin({
+        patterns: [
+            { from: 'src/assets', to: 'assets' }
+        ]
+    })
+],
+...
+```
+
+## 將 theme 內的 css/styles.css 移入 src/styles.css
+理論上，你能夠將 theme 內的 styles.css 內的全選，複製到 src/styles.css 空白的 css 並貼上。但有一點必須要注意，因為 grayscale 原本的 assets 是跟 css 資料夾同一層，而原本的 styles.css 是在 css 內的檔案。這份 css 在引入 assets 的時候，是使用 ../assets/.... 的語法。而在本專案，assets 則是與 styles.css 同一層，應將 ../assets 改為 ./assets
+## 將 theme 內的 JS 移入
+首先有兩塊 javascript 我們還沒移入
+1. body 尾巴的 jquery easing
+   
+    ### jquery.easing
+    我們需要安裝 jQuery Easing 這個套件
+    ### Yarn 安裝 Copy Webpack Plugin
+    ```bash
+    yarn add jquery.easing
+    ```
+    ### Npm 安裝 Copy Webpack Plugin
+    ```bash
+    npm install jquery.easing --save-dev
+    ```
+
+    來使用他，我們只需要在 index.js 內 import 這個套件即可
+    ```js
+    //src/index.js
+    import 'jquery.easing'
+    ```
+2. body 尾巴的 js 資料夾內的 scripts.js
+
+    將 theme 內的 js 資料夾直接拉到專案 src 內，
+    我們在 index.js 直接 import
+    ```js
+    //src/index.js
+    import './js/scripts'
+    ```

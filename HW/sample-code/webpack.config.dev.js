@@ -2,6 +2,7 @@
 const path = require("path")
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     mode: "development",
@@ -18,6 +19,15 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: './src/index.html'
+        }),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'src/assets', to: 'assets' }
+            ]
         })
     ],
     module: {
@@ -40,7 +50,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.html$/, // css 檔案的RegExp
+                test: /\.html$/, // html 檔案的RegExp
                 use: [
                     "raw-loader",
                 ]
