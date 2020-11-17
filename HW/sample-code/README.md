@@ -396,7 +396,7 @@ plugins: [
 ## Google Fonts
 這次的 theme 中在 head 引入了 google fonts，但現在我們要換個語法直接在 styles.css 引入
 
-我們將原本 head 的 <link href="..." rel="stylesheet" />
+我們將原本 head 的 \<link href="..." rel="stylesheet" />
 
 換成了 css 的 @import url(...) 語法
 
